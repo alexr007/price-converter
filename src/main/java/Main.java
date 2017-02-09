@@ -22,7 +22,7 @@ public class Main {
                         new File(fileName + ".sql"))
                 )
             );
-            String line;
+            String line = rd.readLine(); // strip 1st line
             while ((line = rd.readLine())!= null) {
                 wr.write(
                     new ReplaceComma(
