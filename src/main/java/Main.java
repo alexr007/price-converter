@@ -9,37 +9,8 @@ public class Main {
         if (args.length<3) {
             System.out.println("Usage corr.jar <file> <vendor> <country>");
         } else {
-            String vendor = args[1];
-            String country = args[2];
-            String fileName = args[0];
-            BufferedReader rd = new BufferedReader(
-                new InputStreamReader(
-                    new FileInputStream(
-                        new File(fileName))));
-            BufferedWriter wr = new BufferedWriter(
-                new OutputStreamWriter(
-                    new FileOutputStream(
-                        new File(fileName + ".sql"))
-                )
-            );
-            String line = rd.readLine(); // strip 1st line
-            while ((line = rd.readLine())!= null) {
-                wr.write(
-                    new ReplaceComma(
-                        new AddFields(
-                            new StripFields(
-                                new StripNonASCII(line)
-                            ),
-                            vendor,
-                            country
-                        )
-
-                    ).data()
-                );
-                wr.newLine();
-            }
-            rd.close();
-            wr.close();
+            new ConvertedFile(args[0], args[1], args[2])
+            .convert();
         }
     }
 }
