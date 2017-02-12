@@ -30,17 +30,35 @@ class LineToArray {
             }
             boolean atLastChar = (pos == origin.length() - 1);
             if (atLastChar) {
-                result.add(origin.substring(start));
+                if (origin.charAt(pos) == DELIM) {
+                    result.add(origin.substring(start, pos));
+                    result.add("");
+                }
+                else {
+                    result.add(origin.substring(start));
+                }
             }
             else if (origin.charAt(pos) == DELIM && !inQuotes) {
                 result.add(origin.substring(start, pos));
                 start = pos + 1;
             }
         }
-        if (origin.endsWith(String.valueOf(DELIM))) {
-            result.add("");
-        }
         return result.toArray(new String[0]);
         //return origin.split(String.valueOf(DELIM),-1);
+    }
+
+    @Override
+    public String toString() {
+        String delim = "";
+        StringBuilder sb = new StringBuilder();
+        for (String s : items()) {
+            sb.append(delim);
+            sb.append('<');
+            sb.append(s);
+            sb.append('>');
+            delim=",";
+        }
+
+        return sb.toString();
     }
 }

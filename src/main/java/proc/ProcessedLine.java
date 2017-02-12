@@ -52,11 +52,12 @@ public class ProcessedLine implements Process{
                 break;
             // ---------------
             case "PORSCHE" :
-                items = new LineToArray(
+                items=new LineToArray(
                     new GetFields(
                         baseProcessed,
                         3, 4, 9, 6
-                    ), ";"
+                    ),
+                    ";"
                 ).items();
                 processedLine = new Fields(
                     items[0], // number

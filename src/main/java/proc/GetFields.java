@@ -20,6 +20,7 @@ public class GetFields implements Process {
         String delim = "";
         StringBuilder sb = new StringBuilder();
         String[] items = new LineToArray(origin, ";").items();
+
         for (int field : fieldsList) {
             //System.out.println("index:"+field);
             //System.out.println("val:"+items[field-1]+":");
