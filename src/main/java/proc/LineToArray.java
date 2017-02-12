@@ -19,18 +19,18 @@ class LineToArray {
     }
 
     String[] items() {
-        final char QUOTE = '\"';
-        final char DELIM = ';';
+        final String QUOTE = "\"";
+        final String DELIM = ";";
         ArrayList<String> result = new ArrayList<>();
         int start = 0;
         boolean inQuotes = false;
         for (int pos = 0; pos < origin.length(); pos++) {
-            if (origin.charAt(pos) == QUOTE) {
+            if (QUOTE.equals(origin.charAt(pos))) {
                 inQuotes = !inQuotes;
             }
             boolean atLastChar = (pos == origin.length() - 1);
             if (atLastChar) {
-                if (origin.charAt(pos) == DELIM) {
+                if (DELIM.equals(origin.charAt(pos))) {
                     result.add(origin.substring(start, pos));
                     result.add("");
                 }
@@ -38,7 +38,7 @@ class LineToArray {
                     result.add(origin.substring(start));
                 }
             }
-            else if (origin.charAt(pos) == DELIM && !inQuotes) {
+            else if (DELIM.equals(origin.charAt(pos)) && !inQuotes) {
                 result.add(origin.substring(start, pos));
                 start = pos + 1;
             }
