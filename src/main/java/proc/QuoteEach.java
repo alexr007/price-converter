@@ -2,15 +2,17 @@ package proc;
 
 /**
  * Created by alexr on 12.02.2017.
+ *
+ * just Quote each Item in string
  */
 public class QuoteEach implements Process {
     private final String origin;
 
-    public QuoteEach(Process origin) {
+    QuoteEach(Process origin) {
         this(origin.data());
     }
 
-    public QuoteEach(String origin) {
+    QuoteEach(String origin) {
         this.origin = origin;
     }
 

@@ -2,6 +2,8 @@ package proc;
 
 /**
  * Created by alexr on 09.02.2017.
+ *
+ * adding fields to String
  */
 public class AddFields implements Process {
     private final String origin;
@@ -11,7 +13,7 @@ public class AddFields implements Process {
         this(origin.data(), fields);
     }
 
-    public AddFields(String origin, String... fields) {
+    AddFields(String origin, String... fields) {
         this.origin = origin;
         this.fields = fields;
     }
@@ -19,7 +21,8 @@ public class AddFields implements Process {
     public String data() {
         StringBuilder sb = new StringBuilder(origin);
         for (String field : fields) {
-            sb.append(";"+field);
+            sb.append(";");
+            sb.append(field);
         }
         return sb.toString();
     }
