@@ -7,7 +7,7 @@ package proc;
  */
 public class Quoted implements Process {
     private final String origin;
-    private final String QUOTE = "\"";
+    private final char QUOTE = '"';
 
     Quoted(String origin) {
         this.origin = origin;

@@ -26,7 +26,7 @@ public class ConvertedFile {
         BufferedWriter wr = new BufferedWriter(
             new OutputStreamWriter(
                 new FileOutputStream(
-                    new File(fileName + ".sql"))
+                    new File(vendorName + ".sql"))
             )
         );
 

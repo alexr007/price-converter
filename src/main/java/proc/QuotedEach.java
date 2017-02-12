@@ -5,14 +5,14 @@ package proc;
  *
  * just Quote each Item in string
  */
-public class QuoteEach implements Process {
+public class QuotedEach implements Process {
     private final String origin;
 
-    QuoteEach(Process origin) {
+    QuotedEach(Process origin) {
         this(origin.data());
     }
 
-    QuoteEach(String origin) {
+    QuotedEach(String origin) {
         this.origin = origin;
     }
 

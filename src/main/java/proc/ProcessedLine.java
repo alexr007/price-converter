@@ -27,7 +27,7 @@ public class ProcessedLine implements Process{
         switch (vendorName) {
             // ---------------
             case "MERCEDES" :
-                processedLine = new QuoteEach(
+                processedLine = new QuotedEach(
                     new GetFields(
                         new CheckQuotes(baseProcessed),
                         1,2,3,6,8
@@ -43,7 +43,7 @@ public class ProcessedLine implements Process{
                     ), ";"
                 ).items();
                 items[2] =items[2].replace(" ","");
-                processedLine = new QuoteEach(
+                processedLine = new QuotedEach(
                     new AddFields(
                         new ArrayToLine(items),
                         "0"
@@ -68,7 +68,7 @@ public class ProcessedLine implements Process{
                 break;
             // ---------------
             case "LANDROVER" :
-                processedLine = new QuoteEach(
+                processedLine = new QuotedEach(
                     new AddFields(
                         new GetFields(
                             baseProcessed,
@@ -79,7 +79,7 @@ public class ProcessedLine implements Process{
                 break;
             // ---------------
             case "JAGUAR" :
-                processedLine = new QuoteEach(
+                processedLine = new QuotedEach(
                     new AddFields(
                         new GetFields(
                             baseProcessed,
