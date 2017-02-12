@@ -1,8 +1,12 @@
+package proc;
+
 /**
  * Created by alexr on 09.02.2017.
  */
 public class ReplaceComma implements Process {
     private final String origin;
+    private final String FIND = ",";
+    private final String REPLACE = ".";
 
     public ReplaceComma(Process origin) {
         this(origin.data());
@@ -13,6 +17,6 @@ public class ReplaceComma implements Process {
     }
 
     public String data() {
-        return origin.replace(",", ".");
+        return origin.replace(FIND, REPLACE);
     }
 }

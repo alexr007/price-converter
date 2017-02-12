@@ -1,8 +1,12 @@
+package proc;
+
 /**
  * Created by alexr on 09.02.2017.
  */
-public class StripNonASCII implements Process{
+public class StripNonASCII implements Process {
     private final String origin;
+    private final String FIND="[^\\x20-\\x7e]";
+    private final String REPLACE="";
 
     public StripNonASCII(Process origin) {
         this(origin.data());
@@ -13,6 +17,6 @@ public class StripNonASCII implements Process{
     }
 
     public String data() {
-        return origin.replaceAll("[^\\x20-\\x7e]", "");
+        return origin.replaceAll(FIND, REPLACE);
     }
 }

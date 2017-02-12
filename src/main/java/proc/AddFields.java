@@ -1,7 +1,9 @@
+package proc;
+
 /**
  * Created by alexr on 09.02.2017.
  */
-public class AddFields implements Process{
+public class AddFields implements Process {
     private final String origin;
     private final String[] fields;
 
@@ -17,7 +19,7 @@ public class AddFields implements Process{
     public String data() {
         StringBuilder sb = new StringBuilder(origin);
         for (String field : fields) {
-            sb.append(";\""+field+"\"");
+            sb.append(";"+field);
         }
         return sb.toString();
     }

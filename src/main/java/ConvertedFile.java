@@ -1,3 +1,5 @@
+import proc.*;
+
 import java.io.*;
 
 /**
@@ -5,13 +7,15 @@ import java.io.*;
  */
 public class ConvertedFile {
     private final String fileName;
-    private final String vendor;
-    private final String country;
+    private final int DEALER = 4;
+    private final int vendorId;
+    private final String vendorName;
 
-    public ConvertedFile(String fileName, String vendor, String country) {
+    public ConvertedFile(String fileName) {
         this.fileName = fileName;
-        this.vendor = vendor;
-        this.country = country;
+        Vendor vendor = new Vendor(fileName);
+        this.vendorId = vendor.id();
+        this.vendorName = vendor.name();
     }
 
     public void convert() throws IOException {
@@ -25,18 +29,16 @@ public class ConvertedFile {
                     new File(fileName + ".sql"))
             )
         );
+
         String line = rd.readLine(); // strip 1st line
         while ((line = rd.readLine())!= null) {
             wr.write(
-                new ReplaceComma(
-                    new AddFields(
-                        new StripFields(
-                            new StripNonASCII(line)
-                        ),
-                        vendor,
-                        country
-                    )
-
+                new AddFields(
+                    new ProcessedLine(line, vendorName),
+                    // vendorId
+                    Integer.toString(vendorId),
+                    // dealer = 4
+                    Integer.toString(DEALER)
                 ).data()
             );
             wr.newLine();
