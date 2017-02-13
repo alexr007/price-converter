@@ -24,8 +24,7 @@ public class LineToArray implements ProcessList{
         this.delimiter = delimiter;
     }
 
-    @Override
-    public List<String> list() {
+    private List<String> listIt() {
         final char QUOTE = '\"';
         final char DELIM = ';';
         ArrayList<String> result = new ArrayList<>();
@@ -59,11 +58,16 @@ public class LineToArray implements ProcessList{
             return result;
             */
         }
-        ArrayList<String> r2 = new ArrayList<>();
-        for (String s : result) {
-            r2.add(new Trimmed(new UnQuoted(s)).data());
+        return result;
+    }
+
+    @Override
+    public List<String> list() {
+        ArrayList<String> result = new ArrayList<>();
+        for (String s : listIt()) {
+            result.add(new Trimmed(new UnQuoted(s)).data());
         }
-        return r2;
+        return result;
     }
 
     @Override
