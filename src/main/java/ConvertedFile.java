@@ -29,17 +29,18 @@ public class ConvertedFile {
                     new File(vendorName + ".sql"))
             )
         );
-
         String line = rd.readLine(); // strip 1st line
         while ((line = rd.readLine())!= null) {
             wr.write(
-                new AddFields(
-                    new ProcessedLine(line, vendorName),
-                    // vendorId
-                    Integer.toString(vendorId),
-                    // dealer = 4
-                    Integer.toString(DEALER)
-                ).data()
+                new QuotedEach(
+                    new AddFields(
+                        new ProcessedLine(line, vendorName),
+                        // vendorId
+                        Integer.toString(vendorId),
+                        // dealer = 4
+                        Integer.toString(DEALER)
+                    )
+                ).toString()
             );
             wr.newLine();
         }

@@ -13,10 +13,6 @@ public class Quoted implements Process {
         this.origin = origin;
     }
 
-    Quoted(Process origin) {
-        this(origin.data());
-    }
-
     public String data() {
         return QUOTE + origin + QUOTE;
     }

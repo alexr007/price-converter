@@ -10,10 +10,6 @@ public class UnQuoted implements Process{
         this.origin = origin;
     }
 
-    public UnQuoted(Process origin) {
-        this(origin.data());
-    }
-
     public String data() {
         return ((origin != null)
             &&(origin.startsWith("\""))
