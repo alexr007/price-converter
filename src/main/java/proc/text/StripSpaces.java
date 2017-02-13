@@ -1,9 +1,11 @@
-package proc;
+package proc.text;
+
+import proc.text.Process;
 
 /**
  * Created by alexr on 13.02.2017.
  */
-public class StripSpaces implements Process{
+public class StripSpaces implements Process {
     private final String origin;
 
     public StripSpaces(String origin) {

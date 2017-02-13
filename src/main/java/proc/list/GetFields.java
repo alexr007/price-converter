@@ -1,4 +1,4 @@
-package proc;
+package proc.list;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,9 +1,11 @@
-package proc;
+package proc.text;
+
+import proc.text.Process;
 
 /**
  * Created by alexr on 12.02.2017.
  */
-public class UnQuoted implements Process{
+public class UnQuoted implements Process {
     private final String origin;
 
     public UnQuoted(String origin) {

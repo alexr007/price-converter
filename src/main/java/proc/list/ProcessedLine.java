@@ -1,4 +1,11 @@
-package proc;
+package proc.list;
+
+import proc.LineToArray;
+import proc.list.AddFields;
+import proc.list.GetFields;
+import proc.list.ProcessList;
+import proc.text.ReplaceComma;
+import proc.text.StripNonASCII;
 
 import java.util.List;
 

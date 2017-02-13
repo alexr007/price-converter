@@ -1,4 +1,6 @@
-package proc;
+package proc.text;
+
+import proc.text.Process;
 
 /**
  * Created by alexr on 09.02.2017.

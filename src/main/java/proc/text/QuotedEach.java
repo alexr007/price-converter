@@ -1,4 +1,9 @@
-package proc;
+package proc.text;
+
+import proc.list.ProcessList;
+import proc.text.Quoted;
+import proc.text.StripSpaces;
+import proc.text.ZeroIfNull;
 
 import java.util.List;
 

@@ -1,4 +1,6 @@
-import proc.*;
+import proc.list.AddFields;
+import proc.list.ProcessedLine;
+import proc.text.QuotedEach;
 
 import java.io.*;
 

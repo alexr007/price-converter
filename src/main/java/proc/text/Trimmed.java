@@ -1,6 +1,6 @@
-package proc;
+package proc.text;
 
-import proc.Process;
+import proc.text.Process;
 
 /**
  * Created by alexr on 09.02.2017.
@@ -12,7 +12,7 @@ public class Trimmed implements Process {
         this.origin = origin;
     }
 
-    Trimmed(Process origin) {
+    public Trimmed(Process origin) {
         this(origin.data());
     }
 
