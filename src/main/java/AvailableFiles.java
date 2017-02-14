@@ -15,7 +15,6 @@ public class AvailableFiles {
             if(!path.toFile().isDirectory()) {
                 String fileName = path.toFile().toString();
                 if (fileName.toLowerCase().endsWith(".txt")||fileName.toLowerCase().endsWith(".csv")) {
-                    System.out.println(fileName);
                     files.add(fileName);
                 }
             }
