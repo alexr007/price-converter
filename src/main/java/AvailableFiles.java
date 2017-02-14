@@ -13,8 +13,10 @@ public class AvailableFiles {
         DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get("."));
         for (Path path : stream) {
             if(!path.toFile().isDirectory()) {
+                //String fileName = path.toFile().toString().toLowerCase();
                 String fileName = path.toFile().toString().toLowerCase();
                 if (fileName.endsWith(".txt")||fileName.endsWith(".csv")) {
+                    System.out.println(fileName);
                     files.add(fileName);
                 }
             }
