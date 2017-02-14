@@ -10,9 +10,7 @@ public class Main {
         System.out.println("-= Price converter =-");
         for (String name : new AvailableFiles().get()) {
             System.out.println(String.format("Processing file: %s...", name));
-            new ConvertedFile(name)
-                //.convert()
-            ;
+            new ConvertedFile(name).convert();
         }
         System.out.println("-= Done =-");
     }
