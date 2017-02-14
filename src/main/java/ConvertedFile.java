@@ -21,6 +21,9 @@ public class ConvertedFile {
     }
 
     public void convert() throws IOException {
+        System.out.println(
+            new File(fileName).getAbsolutePath()
+        );
         BufferedReader rd = new BufferedReader(
             new InputStreamReader(
                 new FileInputStream(
