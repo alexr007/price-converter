@@ -1,7 +1,5 @@
 package proc.text;
 
-import proc.text.Process;
-
 /**
  * Created by alexr on 12.02.2017.
  */

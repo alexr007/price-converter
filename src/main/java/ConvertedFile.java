@@ -1,6 +1,9 @@
 import proc.list.AddFields;
+import proc.list.LineToArray;
 import proc.list.ProcessedLine;
 import proc.text.QuotedEach;
+import proc.text.ReplaceComma;
+import proc.text.StripNonASCII;
 
 import java.io.*;
 
@@ -36,7 +39,12 @@ public class ConvertedFile {
             wr.write(
                 new QuotedEach(
                     new AddFields(
-                        new ProcessedLine(line, vendorName),
+                        new ProcessedLine(
+                            new LineToArray(
+                                new ReplaceComma(
+                                    new StripNonASCII(line)
+                                ), ";")
+                            , vendorName),
                         // vendorId
                         Integer.toString(vendorId),
                         // dealer = 4

@@ -1,4 +1,4 @@
-package proc;
+package proc.list;
 
 import proc.list.ProcessList;
 import proc.text.Process;
