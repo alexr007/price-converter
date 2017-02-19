@@ -1,18 +1,18 @@
-package proc.text;
+package process.sp;
 
 /**
  * Created by alexr on 09.02.2017.
  */
-public class ReplaceComma implements Process {
+public class SpReplaceComma implements StringProcess {
     private final String origin;
     private final String FIND = ",";
     private final String REPLACE = ".";
 
-    public ReplaceComma(Process origin) {
+    public SpReplaceComma(StringProcess origin) {
         this(origin.data());
     }
 
-    public ReplaceComma(String origin) {
+    public SpReplaceComma(String origin) {
         this.origin = origin;
     }
 

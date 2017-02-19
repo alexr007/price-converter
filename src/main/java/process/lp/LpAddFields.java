@@ -1,4 +1,4 @@
-package proc.list;
+package process.lp;
 
 import java.util.List;
 
@@ -7,19 +7,20 @@ import java.util.List;
  *
  * adding fields to List<String>
  */
-public class AddFields implements ProcessList {
+public class LpAddFields implements ListProcess {
     private final List<String> origin;
     private final String[] fields;
 
-    public AddFields(ProcessList origin, String... fields) {
+    public LpAddFields(ListProcess origin, String... fields) {
         this.origin = origin.list();
         this.fields = fields;
     }
 
     public List<String>list(){
+        final List<String> process = origin;
         for (String s : fields) {
-            origin.add(s);
+            process.add(s);
         }
-        return origin;
+        return process;
     }
 }

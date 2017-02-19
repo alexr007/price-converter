@@ -1,4 +1,4 @@
-package proc.list;
+package process.lp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,11 +6,11 @@ import java.util.List;
 /**
  * Created by alexr on 09.02.2017.
  */
-public class GetFields implements ProcessList {
+public class LpGetFields implements ListProcess {
     private final List<String> origin;
     private final int[] fieldsList;
 
-    public GetFields(List<String> origin, int... fieldsList) {
+    public LpGetFields(List<String> origin, int... fieldsList) {
         this.origin = origin;
         this.fieldsList = fieldsList;
     }

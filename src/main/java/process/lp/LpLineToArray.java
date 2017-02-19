@@ -1,9 +1,8 @@
-package proc.list;
+package process.lp;
 
-import proc.list.ProcessList;
-import proc.text.Process;
-import proc.text.Trimmed;
-import proc.text.UnQuoted;
+import process.sp.SpTrimmed;
+import process.sp.SpUnQuoted;
+import process.sp.StringProcess;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,26 +10,26 @@ import java.util.List;
 /**
  * Created by alexr on 12.02.2017.
  */
-public class LineToArray implements ProcessList{
+public class LpLineToArray implements ListProcess {
     private final String origin;
     private final String delimiter;
 
-    public LineToArray(Process origin, String delimiter) {
+    public LpLineToArray(StringProcess origin, String delimiter) {
         this(origin.data(), delimiter);
     }
 
-    LineToArray(String origin, String delimiter) {
+    LpLineToArray(String origin, String delimiter) {
         this.origin = origin;
         this.delimiter = delimiter;
     }
 
     private List<String> listIt() {
         final char QUOTE = '\"';
-        final char DELIM = ';';
+        final char DELIM = delimiter.charAt(0);
+        final String EMPTY = "";
         ArrayList<String> result = new ArrayList<>();
         int start = 0;
         boolean inQuotes = false;
-        //String item="";
         for (int pos = 0; pos < origin.length(); pos++) {
             if (QUOTE == origin.charAt(pos)) {
                 inQuotes = !inQuotes;
@@ -38,25 +37,15 @@ public class LineToArray implements ProcessList{
             boolean atLastChar = (pos == origin.length() - 1);
             if (atLastChar) {
                 if (DELIM == origin.charAt(pos)) {
-                    //item=origin.substring(start, pos);
                     result.add(origin.substring(start, pos));
-                    result.add("");
+                    result.add(EMPTY);
                 } else {
-                    //item=origin.substring(start);
                     result.add(origin.substring(start));
                 }
             } else if (DELIM == origin.charAt(pos) && !inQuotes) {
                 result.add(origin.substring(start, pos));
-                //item=origin.substring(start, pos);
                 start = pos + 1;
             }
-            /*
-            result.add(new Trimmed(new UnQuoted(item)).data());
-            if (DELIM == origin.charAt(pos)) {
-                result.add("");
-            }
-            return result;
-            */
         }
         return result;
     }
@@ -65,7 +54,7 @@ public class LineToArray implements ProcessList{
     public List<String> list() {
         ArrayList<String> result = new ArrayList<>();
         for (String s : listIt()) {
-            result.add(new Trimmed(new UnQuoted(s)).data());
+            result.add(new SpTrimmed(new SpUnQuoted(s)).data());
         }
         return result;
     }

@@ -1,9 +1,9 @@
-import proc.list.AddFields;
-import proc.list.LineToArray;
-import proc.list.ProcessedLine;
-import proc.text.QuotedEach;
-import proc.text.ReplaceComma;
-import proc.text.StripNonASCII;
+import process.lp.LpAddFields;
+import process.lp.LpLineToArray;
+import process.lp.LpVendorSpecific;
+import process.sp.SpQuotedEach;
+import process.sp.SpReplaceComma;
+import process.sp.SpStripNonASCII;
 
 import java.io.*;
 
@@ -37,12 +37,12 @@ public class ConvertedFile {
         String line = rd.readLine(); // strip 1st line
         while ((line = rd.readLine())!= null) {
             wr.write(
-                new QuotedEach(
-                    new AddFields(
-                        new ProcessedLine(
-                            new LineToArray(
-                                new ReplaceComma(
-                                    new StripNonASCII(line)
+                new SpQuotedEach(
+                    new LpAddFields(
+                        new LpVendorSpecific(
+                            new LpLineToArray(
+                                new SpReplaceComma(
+                                    new SpStripNonASCII(line)
                                 ), ";")
                             , vendorName),
                         // vendorId
@@ -50,7 +50,7 @@ public class ConvertedFile {
                         // dealer = 4
                         Integer.toString(DEALER)
                     )
-                ).toString()
+                ).data()
             );
             wr.newLine();
         }

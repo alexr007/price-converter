@@ -1,16 +1,16 @@
-package proc.text;
+package process.sp;
 
 /**
  * Created by alexr on 09.02.2017.
  */
-public class Trimmed implements Process {
+public class SpTrimmed implements StringProcess {
     private final String origin;
 
-    Trimmed(String origin) {
+    SpTrimmed(String origin) {
         this.origin = origin;
     }
 
-    public Trimmed(Process origin) {
+    public SpTrimmed(StringProcess origin) {
         this(origin.data());
     }
 

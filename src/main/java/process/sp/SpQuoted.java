@@ -1,15 +1,15 @@
-package proc.text;
+package process.sp;
 
 /**
  * Created by alexr on 12.02.2017.
  *
  * just enclose string to quotes;
  */
-public class Quoted implements Process {
+public class SpQuoted implements StringProcess {
     private final String origin;
     private final String QUOTE = "\"";
 
-    Quoted(String origin) {
+    SpQuoted(String origin) {
         this.origin = origin;
     }
 

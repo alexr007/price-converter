@@ -1,9 +1,6 @@
-package proc.text;
+package process.sp;
 
-import proc.list.ProcessList;
-import proc.text.Quoted;
-import proc.text.StripSpaces;
-import proc.text.ZeroIfNull;
+import process.lp.ListProcess;
 
 import java.util.List;
 
@@ -12,15 +9,16 @@ import java.util.List;
  *
  * just Quote each Item in string
  */
-public class QuotedEach {
+public class SpQuotedEach implements StringProcess{
     private final List<String> origin;
+    private final String DELIM = ";";
 
-    public QuotedEach(ProcessList origin) {
+    public SpQuotedEach(ListProcess origin) {
         this.origin = origin.list();
     }
 
     @Override
-    public String toString() {
+    public String data() {
         String delim = "";
         StringBuilder sb = new StringBuilder();
         int fieldNumber = 1;
@@ -29,13 +27,13 @@ public class QuotedEach {
             sb.append(delim);
             if (fieldNumber == 3 || fieldNumber == 4) {
                 // special price & weight handling
-                field = new ZeroIfNull(new StripSpaces(item)).data();
+                field = new SpZeroIfNull(new SpStripSpaces(item)).data();
             }
             else {
                 field = item;
             }
-            sb.append(new Quoted(field).data());
-            delim = ";";
+            sb.append(new SpQuoted(field).data());
+            delim = DELIM;
             fieldNumber++;
         }
         return sb.toString();

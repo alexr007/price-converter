@@ -1,3 +1,5 @@
+import process.sp.SpStripSpaces;
+
 import java.util.HashMap;
 import java.util.Set;
 
@@ -51,7 +53,7 @@ class Vendor {
         map.put("PORSCHE",28);
         map.put("SKODA",32);
         map.put("SCANIA",33);
-        map.put("LANDROVER",34);
+        map.put("LAND ROVER",34);
         map.put("JAGUAR",35);
         map.put("CITROEN",36);
         map.put("PEUGEOT",37);
@@ -73,7 +75,7 @@ class Vendor {
     int id() {
         int id = 0;
         for (String vendor : vendors) {
-            if (fileName.contains(vendor)) {
+            if (fileName.contains(new SpStripSpaces(vendor).data())) {
                 id = map.get(vendor);
                 break;
             }

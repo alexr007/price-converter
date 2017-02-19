@@ -1,19 +1,20 @@
-package proc.text;
+package process.sp;
 
 /**
  * Created by alexr on 12.02.2017.
  */
-public class UnQuoted implements Process {
+public class SpUnQuoted implements StringProcess {
     private final String origin;
+    private final String QUOTE = "\"";
 
-    public UnQuoted(String origin) {
+    public SpUnQuoted(String origin) {
         this.origin = origin;
     }
 
     public String data() {
         return ((origin != null)
-            &&(origin.startsWith("\""))
-            &&(origin.endsWith("\""))) ?
+            &&(origin.startsWith(QUOTE))
+            &&(origin.endsWith(QUOTE))) ?
             origin.substring(1, origin.length() - 1)
             : origin;
     }
