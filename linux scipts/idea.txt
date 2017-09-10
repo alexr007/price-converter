@@ -1,0 +1,21 @@
+DROP TABLE price;
+
+CREATE TABLE price
+(
+    pr_id INTEGER PRIMARY KEY NOT NULL,
+    pr_vendor INTEGER,
+    pr_date TIMESTAMP WITH TIME ZONE DEFAULT now(),
+    pr_number CHARACTER VARYING,
+    pr_name CHARACTER VARYING,
+    pr_price NUMERIC(10,2),
+    pr_weight NUMERIC(10,2),
+    pr_dealer INTEGER,
+    pr_core NUMERIC(10,2),
+    CONSTRAINT price___fk2 FOREIGN KEY (pr_vendor) REFERENCES vendors (v_id),
+    CONSTRAINT price___fk1 FOREIGN KEY (pr_dealer) REFERENCES dealer (dl_id)
+);
+
+COPY...
+
+CREATE INDEX price_pr_number_index ON price (pr_number);
+

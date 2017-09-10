@@ -1,0 +1,1 @@
+rm -rf priceconvertor/ && git clone https://github.com/alexr007/priceconvertor.git && cd priceconvertor && mvn package && cd ..
