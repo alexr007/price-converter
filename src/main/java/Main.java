@@ -9,17 +9,18 @@ import java.util.concurrent.CountDownLatch;
  */
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
+        final String fmt = "Method, %s, done time:%dms\n";
         System.out.println("-= Price converter =-");
-        List<String> fileNames = new AvailableFiles().get();
-        CountDownLatch cdl =new CountDownLatch(fileNames.size());
-        long start = System.currentTimeMillis();
-        for (String name : fileNames) {
-            new Thread(
-                new RunnableConverted(name, cdl)
-            ).start();
+        if (args.length>0) {
+            //final long time1 = new Entrance(args).run_parallel_all();
+            //final long time2 = new Entrance(args).run_sequential();
+            final long time3 = new Entrance(args).run_parallel_smart();
+            //System.out.printf(fmt, "Brutal Parallel", time1);
+            //System.out.printf(fmt, "Simple Sequential", time2);
+            System.out.printf(fmt, "Smart Parallel (according to core count)", time3);
         }
-        cdl.await();
-        long delta = System.currentTimeMillis()-start;
-        System.out.println(String.format("-= Done in %d millis=-", delta));
+        else {
+            System.out.println("format: >converter initialDir");
+        }
     }
 }

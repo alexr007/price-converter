@@ -2,6 +2,7 @@ import process.sp.SpStripSpaces;
 
 import java.util.HashMap;
 import java.util.Set;
+import java.util.function.Consumer;
 
 /**
  * Created by alexr on 12.02.2017.
@@ -86,7 +87,7 @@ class Vendor {
     String name() {
         String name = "";
         for (String vendor:vendors) {
-            if (fileName.contains(vendor)) {
+            if (fileName.contains(new SpStripSpaces(vendor).data())) {
                 name=vendor;
                 break;
             }

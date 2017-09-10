@@ -15,12 +15,7 @@ public class RunnableConverted implements Runnable {
 
     @Override
     public void run() {
-        System.out.println(String.format("Processing file: %s...", file));
-        try {
-            new ConvertedFile(file).convert();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        new ConvertedFile(file).convert();
         cdl.countDown();
     }
 }
